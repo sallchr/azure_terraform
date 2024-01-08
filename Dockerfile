@@ -3,7 +3,7 @@ FROM debian:bullseye-slim
 # Refresh image and install dependencies
 RUN apt-get update
 RUN apt-get dist-upgrade -y
-RUN apt-get install ca-certificates curl apt-transport-https lsb-release gnupg wget -y
+RUN apt-get install ca-certificates curl apt-transport-https lsb-release gnupg wget nodejs -y
 # Add hashicorp mirror
 RUN wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > /etc/apt/sources.list.d/hashicorp.list
